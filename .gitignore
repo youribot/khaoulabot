@@ -5,6 +5,7 @@ bower_components/
 dist/
 release/
 npm-debug.log
+cache/
 
 ### Node ###
 # Logs
