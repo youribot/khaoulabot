@@ -2,6 +2,7 @@ import React from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
+import * as BotState from "../redux/modules/BotState"
 
 export default class BotAppContainer extends React.Component {
   render() {
