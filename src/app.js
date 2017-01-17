@@ -1,5 +1,13 @@
+'use strict';
 import {app, BrowserWindow} from 'electron';
 
+const Hapi = require('hapi');
+const server = new Hapi.Server();
+
+server.connection({
+  host: 'localhost',
+  port: 8000
+});
 let mainWindow = null;
 
 app.on('window-all-closed', () => {
@@ -7,6 +15,18 @@ app.on('window-all-closed', () => {
 });
 
 app.on('ready', () => {
+  server.register({
+    register: require('hapi-routes'),
+    options: {dir: 'src/routes/'}
+  }, function (err) {
+    server.start((err) => {
+      if (err) {
+        throw err;
+      }
+      console.log('Server running at:', server.info.uri);
+    });
+  });
+
   mainWindow = new BrowserWindow({
     width: 360,
     height: 500,
@@ -14,6 +34,6 @@ app.on('ready', () => {
     minHeight: 500,
     titleBarStyle: 'hidden-inset'
   });
-
   mainWindow.loadURL(`file://${__dirname}/renderer/index.html`);
+
 });
