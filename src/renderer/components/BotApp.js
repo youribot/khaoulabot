@@ -5,33 +5,35 @@ import { connect } from "react-redux";
 import * as BotState from "../redux/modules/BotState"
 
 
-
 export default class BotAppContainer extends React.Component {
-  render() {
-      return (
-        <div id='chatbox'>
-        <div id='chat-messageboxs' className='animate'>
-            <div className='messagebox'>
-              <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1_copy.jpg' />
-                <div className='bubble'>
-                  Really cool stuff!
-                    <div className='corner'></div>
-                    <span>3 min</span>
-                </div>
-            </div>
-            <div className='messagebox right'>
-              <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/2_copy.jpg' />
-                <div className='bubble'>
-                  Can you share a link for the tutorial?
-                    <div className='corner'></div>
-                    <span>1 min</span>
-                </div>
-            </div>
-        </div>
-        <div id='sendmessagebox'>
-          <input className='ui input fluid' type='text' placeholder='Send message...' />
-            <button id='send'></button>
-        </div>
-        </div>);
+
+render() {
+
+  var MessageRow = React.createClass({
+    render: function() {
+    return <div className={"messagebox " + this.props.position}>
+            <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1_copy.jpg' />
+              <div className='bubble'>
+                {this.props.message}
+                  <div className='corner'></div>
+                  <span>3 min</span>
+              </div>
+          </div>;
+        }
+    });
+
+  return (
+    <div id='chatbox'>
+      <div id='chat-messageboxs' className='animate'>
+       <MessageRow message="Really cool stuff!" position="left"></MessageRow>
+       <MessageRow message="Ooo Awesome!" position="right"></MessageRow>
+       <MessageRow message="Thank you!" position="left"></MessageRow>
+      </div>
+      <div id='sendmessagebox'>
+      <input className='ui input fluid' type='text' placeholder='Send message...' />
+        <button id='send'></button>
+    </div>
+  </div>);
+
   }
 }

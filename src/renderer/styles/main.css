@@ -9,7 +9,7 @@ div.centerMiddle {
   text-align: center;
 }
 #chatbox{
-	width:290px;
+	width:100%;
 	background:#fff;
 	border-radius:6px;
 	overflow:hidden;
