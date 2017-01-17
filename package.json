@@ -11,6 +11,7 @@
   },
   "scripts": {
     "start": "electron .",
+    "buildassets": "gulp",
     "test": "jest"
   },
   "dependencies": {
@@ -40,6 +41,8 @@
     "eslint-config-defaults": "^9.0.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-react": "^6.9.0",
+    "gulp": "^3.9.1",
+    "gulp-copy": "^1.0.0",
     "jest": "^18.1.0"
   }
 }
