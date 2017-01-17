@@ -32,7 +32,7 @@ export default class TodoAppContainer extends React.Component {
 
     render() {
         let todos = this.props.todos.map((todo) => {
-            return <div className="centerMiddle">
+            return <div className="todo">
                 <span
                     className={`text ${todo.complete ? 'complete' : 'incomplete'}`}
                     onClick={this.props.toggleTodo.bind(this, todo.id)}>{todo.text}
@@ -42,11 +42,13 @@ export default class TodoAppContainer extends React.Component {
         })
 
         return (
-        <div className="centerMiddle">
-            <button className="ui button red fluid" onClick={this.onAddClick.bind(this)}>Log In</button>
-            <div className="ui divider hidden"></div>
-            <button className="ui button blue fluid" >Sign Up</button>
-
+        <div>
+            <h1>Todos</h1>
+            <button onClick={this.onAddClick.bind(this)}>Add Date Todo</button>
+            <button onClick={this.props.removeCompleted.bind(this)}>Remove Completed</button>
+            <ul>
+                {todos}
+            </ul>
         </div>);
     }
 }
