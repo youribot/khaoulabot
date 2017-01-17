@@ -46,7 +46,7 @@ export default createReducer(getInitialState(), {
         return {
             ...state,
             todos: state.todos.map((todo) => {
-                var complete = 
+                var complete =
                     (todo.id == id) ? !(todo.complete) : todo.complete;
                 return {
                     ...todo,
