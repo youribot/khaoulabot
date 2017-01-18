@@ -1,11 +1,10 @@
 import React, { PropTypes, Component } from 'react'
 import { SubmissionError, Field, reduxForm } from 'redux-form'
-import { pacomoTransformer } from '../utils/pacomo'
 
 
 const renderInput = field =>
   <div>
-    <input {...field.input} type = {field.type}/>
+    <input {...field.input} type = {field.type} placeholder = {field.placeholder} value= {field.value} />
     {field.meta.touched &&
      field.meta.error &&
      <span className = "error">{field.meta.error}</span>}
@@ -14,8 +13,8 @@ const renderInput = field =>
 const validate = (values, props) => {
 
   const errors = {}
-  if (!values.chatMessage) {
-    errors.mytext = 'Field can not be empty!'
+  if (!values.chatmessage) {
+    errors.chatmessage = 'Field can not be empty!'
   }
   return errors
 }
@@ -28,7 +27,7 @@ let MessageInput = ({ handleSubmit, onSubmit }) => {
         <form onSubmit = {handleSubmit(onSubmit)}>
           <div id='sendmessagebox'>
             <Field
-              name = "chatMessage"
+              name = "chatmessage"
               component = {renderInput}
               type = "text"
               placeholder="Send message..."
@@ -47,8 +46,8 @@ MessageInput.propTypes = {
 }
 
 MessageInput = reduxForm({
-  form: 'conversation',
+  form: 'chatbot',
   validate
-})(pacomoTransformer(MessageInput))
+})(MessageInput)
 
 export default MessageInput
