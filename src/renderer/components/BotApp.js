@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 import * as BotState from "../redux/modules/BotState"
 
+var bot = "../../../assets/youribot.icns";
 
 export default class BotAppContainer extends React.Component {
 
@@ -12,7 +13,7 @@ render() {
   var MessageRow = React.createClass({
     render: function() {
     return <div className={"messagebox " + this.props.position}>
-            <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1_copy.jpg' />
+            <img src='../../assets/youribot.png' />
               <div className='bubble'>
                 {this.props.message}
                   <div className='corner'></div>
