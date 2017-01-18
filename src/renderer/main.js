@@ -9,7 +9,7 @@ import { combineReducers, createStore, applyMiddleware } from "redux";
 
 /** Application imports */
 import Reducers from "./redux/modules";
-import BotAppContainer,{BotApp} from './components/BotApp';
+import BotContainer from './containers/BotContainer'
 
 // Here is where you should initialize your store state
 const initialStoreState = undefined;
@@ -33,6 +33,6 @@ const history = syncHistoryWithStore(hashHistory, store);
 
 ReactDOM.render(<Provider store={store}>
                     <Router history={history}>
-                        <Route path="/" component={BotAppContainer}/>
+                        <Route path="/" component={BotContainer}/>
                     </Router>
                 </Provider>, document.getElementById('app'));

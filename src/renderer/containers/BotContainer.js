@@ -1,16 +1,26 @@
 import React, { PropTypes, Component } from 'react'
 import { connect } from 'react-redux'
 
-import QuestionInput from '../components/MessageSend'
+import MessageList from '../components/messages/MessageList'
+import MessageSend from '../components/messages/MessageSend'
 
 
-const MyContainer = props => {
+const BotContainer = props => {
 
   return (
-    <div className = {'conversation-container'}>
-      <ConversationList data = {props.statusdata} />
-      <QuestionInput onSubmit = {inputClickHandler.bind(this)} />
+    <div id = {'chatbox'}>
+      <MessageList data = {props.statusdata} />
+      <MessageSend onSubmit = {inputClickHandler.bind(this)} />
     </div>
   )
 
 }
+
+
+BotContainer.propTypes = {
+  statusdata: PropTypes.array,
+  dispatch: PropTypes.func.isRequired,
+}
+
+
+export default BotContainer
