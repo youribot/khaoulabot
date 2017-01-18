@@ -5,6 +5,11 @@ import MessageList from '../components/messages/MessageList'
 import MessageSend from '../components/messages/MessageSend'
 
 
+export const inputClickHandler = (line, dispatch) => {
+  dispatch({type: 'QUESTION_MADE', line: line.chatMessage})
+  dispatch(reset('chatbot'))
+}
+
 const BotContainer = props => {
 
   return (
@@ -19,7 +24,7 @@ const BotContainer = props => {
 
 BotContainer.propTypes = {
   statusdata: PropTypes.array,
-  dispatch: PropTypes.func.isRequired,
+  //dispatch: PropTypes.func.isRequired,
 }
 
 
