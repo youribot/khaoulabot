@@ -32,7 +32,7 @@ let MessageInput = ({ handleSubmit, onSubmit }) => {
               type = "text"
               placeholder="Send message..."
               className="ui input fluid" />
-              <button id='send' className = {'btn'} type = "submit"></button>
+              <button id='send' className = {'ui icon basic noborder large button'} type = "submit"><i className='send icon'></i></button>
           </div>
         </form>
     </div>
