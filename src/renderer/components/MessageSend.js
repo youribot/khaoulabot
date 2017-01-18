@@ -20,3 +20,35 @@ const validate = (values, props) => {
   return errors
 }
 
+let MessageInput = ({ handleSubmit, onSubmit }) => {
+
+  return (
+
+    <div>
+        <form onSubmit = {handleSubmit(onSubmit)}>
+          <div id='sendmessagebox'>
+            <Field
+              name = "chatMessage"
+              component = {renderInput}
+              type = "text"
+              placeholder="Send message..."
+              className="ui input fluid" />
+              <button id='send' className = {'btn'} type = "submit"></button>
+          </div>
+        </form>
+    </div>
+
+  )
+}
+
+MessageInput.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired
+}
+
+MessageInput = reduxForm({
+  form: 'conversation',
+  validate
+})(pacomoTransformer(MessageInput))
+
+export default MessageInput
