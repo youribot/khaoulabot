@@ -13,7 +13,7 @@ const MessageList = props => {
   else
     messages = <div>Lets start a conversation</div>
   return (
-    <ul>{messages}</ul>
+    <div id = {'chat-messageboxs'} className = {'animate'} >{messages}</div>
   )
 
 }
