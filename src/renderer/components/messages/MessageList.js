@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react'
 import MessageRow from './MessageRow'
-import { pacomoTransformer } from '../utils/pacomo'
 
 
 const MessageList = props => {
@@ -13,9 +12,7 @@ const MessageList = props => {
   else
     messages = <div>Lets start a conversation</div>
   return (
-    <div id = {'chatbox'} >
       <div id = {'chat-messageboxs'} className = {'animate'} >{messages}</div>
-    </div>
   )
 
 }
@@ -24,4 +21,4 @@ MessageList.propTypes = {
   data: PropTypes.array
 }
 
-export default pacomoTransformer(MessageList)
+export default MessageList
