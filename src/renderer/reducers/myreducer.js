@@ -1,7 +1,7 @@
 const initialState =  []
 
 const myreducer = (state = initialState, action) => {
-  
+
   switch(action.type) {
 
     case 'ADD_LINES':
@@ -9,7 +9,7 @@ const myreducer = (state = initialState, action) => {
       let newLines = []
       lines.map(line => {
         newLines.push({line, actor: 10})
-      }) 
+      })
       return state.concat(newLines)
       //return state.concat({line: lines.join('\n'), actor: 0})
 
