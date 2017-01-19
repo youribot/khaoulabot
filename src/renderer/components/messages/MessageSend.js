@@ -25,14 +25,14 @@ let MessageInput = ({ handleSubmit, onSubmit }) => {
 
     <div>
         <form onSubmit = {handleSubmit(onSubmit)}>
-          <div id='sendmessagebox'>
+          <div id = {'sendmessagebox'} >
             <Field
-              name = "chatmessage"
+              name = {'chatmessage'}
               component = {renderInput}
-              type = "text"
-              placeholder="Send message..."
-              className="ui input fluid" />
-              <button id='send' className = {'ui icon basic noborder large button'} type = "submit"><i className='send icon'></i></button>
+              type = {'text'}
+              placeholder = {'Send message...'}
+              className = {'ui input fluid'} />
+              <button id = {'send'} className = {'ui icon basic noborder large button'} type = {"submit"}><i className = {'send icon'}></i></button>
           </div>
         </form>
     </div>
