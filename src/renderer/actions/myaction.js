@@ -34,7 +34,7 @@ export const addLineByUser = line => {
 
 export const inputClickHandler = (line, dispatch) => {
 
-  dispatch({type: 'ADD_LINE', line: "testing"})
+  //dispatch({type: 'ADD_LINE_BY_USER', line: "testing"})
   // Reset form
-  //dispatch(reset('chatbot'))
+  dispatch(reset('chatBot'));
 }
