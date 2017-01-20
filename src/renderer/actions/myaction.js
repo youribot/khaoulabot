@@ -36,5 +36,6 @@ export const inputClickHandler = (line, dispatch) => {
 
   //dispatch({type: 'ADD_LINE_BY_USER', line: "testing"})
   // Reset form
+  console.log(dispatch);
   dispatch(reset('chatBot'));
 }
