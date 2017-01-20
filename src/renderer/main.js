@@ -6,6 +6,7 @@ import { Provider } from "react-redux";
 import { Router, Route, hashHistory } from "react-router";
 import { syncHistoryWithStore, routerReducer } from "react-router-redux";
 import { combineReducers, createStore, applyMiddleware } from "redux";
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 /** Application imports */
 import Reducers from "./redux/modules";
@@ -20,7 +21,7 @@ const middleware = [
 ]
 
 // create a stub that we can populate with our initial state
-const createStoreWithMiddleware = applyMiddleware(...middleware)(createStore);
+const createStoreWithMiddleware = composeWithDevTools(applyMiddleware(...middleware))(createStore);
 
 let rootReducer = combineReducers({
     ...Reducers,
