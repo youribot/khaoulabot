@@ -1,9 +1,11 @@
-// Import your modules here
+import { combineReducers } from 'redux'
+import { reducer as formReducer } from 'redux-form'
+import statusReducer from './statusReducer'
 import BotState from "./BotState";
 
-// Map each module to some store on the state
-// object. This must be exported as an object,
-// not as the result of combineReducers.
+
 export default {
-    botstate: BotState
+  form: formReducer,
+  botstate: BotState,
+  status: statusReducer
 }
