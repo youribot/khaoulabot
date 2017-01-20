@@ -4,7 +4,7 @@ import { SubmissionError, Field, reduxForm } from 'redux-form'
 
 const renderInput = field =>
   <div>
-    <input {...field.input} type = {field.type} placeholder = {field.placeholder} value= {field.value} />
+    <input {...field.input} type = {field.type} placeholder = {field.placeholder} value = {field.value} />
     {field.meta.touched &&
      field.meta.error &&
      <span className = "error">{field.meta.error}</span>}
@@ -46,7 +46,7 @@ MessageInput.propTypes = {
 }
 
 MessageInput = reduxForm({
-  form: 'chatbot',
+  form: 'chatBot',
   validate
 })(MessageInput)
 
