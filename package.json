@@ -24,8 +24,6 @@
     "hapi-routes": "^2.2.3",
     "immutable": "^3.8.1",
     "inert": "^4.1.0",
-    "ipfs": "^0.21.0",
-    "ipfs-repo": "^0.11.2",
     "lodash": "^4.17.4",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
