@@ -1,6 +1,6 @@
 const initialState =  []
 
-const myreducer = (state = initialState, action) => {
+const statusReducer = (state = initialState, action) => {
 
   switch(action.type) {
 
@@ -11,19 +11,18 @@ const myreducer = (state = initialState, action) => {
         newLines.push({line, actor: 10})
       })
       return state.concat(newLines)
-      //return state.concat({line: lines.join('\n'), actor: 0})
 
     case 'ADD_LINE':
-      return state.concat({line: action.line, actor: 0})
+      return state.concat({line: action.line, actor: 0, position: "left"})
 
     case 'ADD_LINE_BY_USER':
-      return state.concat({line: action.line, actor: 1})
+      return state.concat({line: action.line, actor: 1, position: "right"})
 
     default:
       return state
   }
 }
 
-export const getLines = state => state.mystatus
+export const getLines = state => state.status
 
-export default myreducer
+export default statusReducer

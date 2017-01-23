@@ -5,9 +5,9 @@ import { reset } from 'redux-form'
 import MessageList from '../components/messages/MessageList'
 import MessageSend from '../components/messages/MessageSend'
 
-import { addLine, inputClickHandler } from '../actions/myaction'
+import { inputClickHandler } from '../actions/myaction'
 
-import { getLines } from '../reducers/myreducer'
+import { getLines } from "../redux/modules/statusReducer"
 
 
 const BotContainer = props => {
@@ -23,6 +23,7 @@ const BotContainer = props => {
 
 
 const mapStateToProps = state => {
+  console.log(getLines(state));
   return {
     statusdata: getLines(state)
   }
@@ -30,7 +31,7 @@ const mapStateToProps = state => {
 
 BotContainer.propTypes = {
   statusdata: PropTypes.array,
-  //dispatch: PropTypes.func.isRequired,
+  dispatch: PropTypes.func.isRequired,
 }
 
 
