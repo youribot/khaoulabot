@@ -2,9 +2,7 @@
 import {app, BrowserWindow} from 'electron';
 
 import installExtension, {
-  EMBER_INSPECTOR, REACT_DEVELOPER_TOOLS,
-  BACKBONE_DEBUGGER, JQUERY_DEBUGGER,
-  ANGULARJS_BATARANG, VUEJS_DEVTOOLS,
+  REACT_DEVELOPER_TOOLS,
   REDUX_DEVTOOLS, REACT_PERF,
 } from 'electron-devtools-installer';
 
