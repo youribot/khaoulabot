@@ -46,8 +46,8 @@ MessageInput.propTypes = {
 }
 
 MessageInput = reduxForm({
-  form: 'chatBot',
-  validate
+  form: 'chatBot'
 })(MessageInput)
 
+//validate
 export default MessageInput
