@@ -4,7 +4,7 @@ import { SubmissionError, Field, reduxForm } from 'redux-form'
 
 const renderInput = field =>
   <div>
-    <input {...field.input} type = {field.type} placeholder = {field.placeholder} value = {field.values} />
+    <input {...field.input} type = {field.type} placeholder = {field.placeholder} defaultValue = {field.defaultValue} />
     {field.meta.touched &&
      field.meta.error &&
      <span className = "error">{field.meta.error}</span>}
@@ -31,6 +31,7 @@ let MessageInput = ({ handleSubmit, onSubmit }) => {
               component = {renderInput}
               type = {'text'}
               placeholder = {'Send message...'}
+              defaultValue = ''
               className = {'ui input fluid'} />
               <button id = {'send'} className = {'ui icon basic noborder large button'} type = {"submit"}><i className = {'send icon'}></i></button>
           </div>
@@ -46,7 +47,8 @@ MessageInput.propTypes = {
 }
 
 MessageInput = reduxForm({
-  form: 'chatBot'
+  form: 'chatBot',
+  validate
 })(MessageInput)
 
 //validate
