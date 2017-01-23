@@ -23,6 +23,7 @@ const BotContainer = props => {
 
 
 const mapStateToProps = state => {
+  console.log(getLines(state));
   return {
     statusdata: getLines(state)
   }
