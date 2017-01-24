@@ -1,12 +1,13 @@
 import React, { PropTypes, Component } from 'react'
 import { SubmissionError, Field, reduxForm } from 'redux-form'
+import { Form, Label, Input } from 'semantic-ui-react'
 
 const renderInput = field =>
   <div>
-    <input {...field.input} type={field.type} placeholder={field.placeholder} defaultValue={field.defaultValue} />
     {field.meta.touched &&
      field.meta.error &&
-     <span className='error'>{field.meta.error}</span>}
+     <Label pointing='below'>{field.meta.error}</Label>}
+    <input {...field.input} type={field.type} placeholder={field.placeholder} defaultValue={field.defaultValue} />
   </div>
 
 const validate = (values, props) => {
@@ -19,7 +20,6 @@ const validate = (values, props) => {
 
 let MessageInput = ({ handleSubmit, onSubmit }) => {
   return (
-
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div id={'sendmessagebox'} >
@@ -34,7 +34,6 @@ let MessageInput = ({ handleSubmit, onSubmit }) => {
         </div>
       </form>
     </div>
-
   )
 }
 
