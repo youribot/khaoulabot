@@ -7,23 +7,19 @@ import MessageSend from '../components/messages/MessageSend'
 
 import { inputClickHandler } from '../actions/myaction'
 
-import { getLines } from "../redux/modules/statusReducer"
-
+import { getLines } from '../redux/modules/statusReducer'
 
 const BotContainer = props => {
-
   return (
-    <div id = {'chatbox'}>
-      <MessageList data = {props.statusdata} />
-      <MessageSend onSubmit = {inputClickHandler.bind(this)} />
+    <div id={'chatbox'}>
+      <MessageList data={props.statusdata} />
+      <MessageSend onSubmit={inputClickHandler.bind(this)} />
     </div>
   )
-
 }
 
-
 const mapStateToProps = state => {
-  console.log(getLines(state));
+  console.log(getLines(state))
   return {
     statusdata: getLines(state)
   }
@@ -31,8 +27,7 @@ const mapStateToProps = state => {
 
 BotContainer.propTypes = {
   statusdata: PropTypes.array,
-  dispatch: PropTypes.func.isRequired,
+  dispatch: PropTypes.func.isRequired
 }
-
 
 export default connect(mapStateToProps)(BotContainer)

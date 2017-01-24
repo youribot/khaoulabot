@@ -1,17 +1,15 @@
 import React, { PropTypes, Component } from 'react'
 import { SubmissionError, Field, reduxForm } from 'redux-form'
 
-
 const renderInput = field =>
   <div>
-    <input {...field.input} type = {field.type} placeholder = {field.placeholder} defaultValue = {field.defaultValue} />
+    <input {...field.input} type={field.type} placeholder={field.placeholder} defaultValue={field.defaultValue} />
     {field.meta.touched &&
      field.meta.error &&
-     <span className = "error">{field.meta.error}</span>}
+     <span className='error'>{field.meta.error}</span>}
   </div>
 
 const validate = (values, props) => {
-
   const errors = {}
   if (!values.chatmessage) {
     errors.chatmessage = 'Type your message here!'
@@ -20,22 +18,21 @@ const validate = (values, props) => {
 }
 
 let MessageInput = ({ handleSubmit, onSubmit }) => {
-
   return (
 
     <div>
-        <form onSubmit = {handleSubmit(onSubmit)}>
-          <div id = {'sendmessagebox'} >
-            <Field
-              name = {'chatmessage'}
-              component = {renderInput}
-              type = {'text'}
-              placeholder = {'Send message...'}
-              defaultValue = ''
-              className = {'ui input fluid'} />
-              <button id = {'send'} className = {'ui icon basic noborder large button'} type = {"submit"}><i className = {'send icon'}></i></button>
-          </div>
-        </form>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div id={'sendmessagebox'} >
+          <Field
+            name={'chatmessage'}
+            component={renderInput}
+            type={'text'}
+            placeholder={'Send message...'}
+            defaultValue=''
+            className={'ui input fluid'} />
+          <button id={'send'} className={'ui icon basic noborder large button'} type={'submit'}><i className={'send icon'} /></button>
+        </div>
+      </form>
     </div>
 
   )
@@ -51,5 +48,5 @@ MessageInput = reduxForm({
   validate
 })(MessageInput)
 
-//validate
+// validate
 export default MessageInput
