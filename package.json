@@ -36,7 +36,8 @@
     "redux-form": "^6.4.3",
     "redux-logger": "^2.7.4",
     "redux-thunk": "^2.1.0",
-    "semantic-ui": "^2.2.7"
+    "semantic-ui": "^2.2.7",
+    "semantic-ui-react": "^0.64.3"
   },
   "private": true,
   "devDependencies": {
