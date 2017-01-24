@@ -8,7 +8,7 @@ const MessageList = props => {
       return <MessageRow key={index} id={index} message={item.line} position={item.position} identity={item.actor} />
     })
   } else {
-    messages = <MessageRow key={0} id={0} message={'Lorem ipsum dolor sit amet, consectetur adipisicing elit!'} position={'right'} />
+    messages = <MessageRow key={0} id={0} message={'What can i do for you?'} position={'left'} />
   }
   return (
     <div id={'chat-messageboxs'} className={'animate'} >{messages}</div>
