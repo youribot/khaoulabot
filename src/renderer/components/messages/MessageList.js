@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import functional from 'react-functional'
 import MessageRow from './MessageRow'
 
 const MessageList = props => {
@@ -18,5 +19,15 @@ const MessageList = props => {
 MessageList.propTypes = {
   data: PropTypes.array
 }
+
+const options = {
+  shouldComponentUpdate: (props, nextProps) =>
+    props.name !== nextProps.name
+}
+
+// const scrollToBottom = () => {
+//   const node = ReactDOM.findDOMNode(this.messagesEnd)
+//   node.scrollIntoView({behavior: 'smooth'})
+// }
 
 export default MessageList
