@@ -7,22 +7,19 @@ export const ADD_LINE_BY_USER = 'ADD_LINE_BY_USER'
 export const addLine = line => {
   return {
     type: ADD_LINE,
-    line
-  }
+  line}
 }
 
 export const addLines = lines => {
   return {
     type: ADD_LINES,
-    lines
-  }
+  lines}
 }
 
 export const addLineByUser = line => {
   return {
     type: ADD_LINE_BY_USER,
-    line
-  }
+  line}
 }
 
 export const inputClickHandler = (line, dispatch) => {

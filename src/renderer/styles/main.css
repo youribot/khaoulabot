@@ -134,6 +134,14 @@ div.messagebox.left .bubble:before {
 #sendmessagebox button:focus{
   outline: 0;
 }
+#messagebeat{
+  position: fixed;
+  bottom: 65px;
+  border-top: 1px solid #eee;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+}
 .noborder{
   border: 0 none !important;
   box-shadow: none !important;
