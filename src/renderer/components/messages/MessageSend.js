@@ -1,14 +1,20 @@
 import React, { PropTypes, Component } from 'react'
 import { SubmissionError, Field, reduxForm } from 'redux-form'
 import { Form, Label, Input } from 'semantic-ui-react'
+import functional from 'react-functional'
 
-const renderInput = field =>
-  <div>
-    {field.meta.touched &&
-     field.meta.error &&
-     <Label pointing='below'>{field.meta.error}</Label>}
-    <input {...field.input} type={field.type} placeholder={field.placeholder} defaultValue={field.defaultValue} />
-  </div>
+const renderInput = field => <div>
+                               {field.meta.touched &&
+                                field.meta.error &&
+                                <Label>
+                                  {field.meta.error}
+                                </Label>}
+                               <input
+                                 {...field.input}
+                                 type={field.type}
+                                 placeholder={field.placeholder}
+                                 defaultValue={field.defaultValue} />
+                             </div>
 
 const validate = (values, props) => {
   const errors = {}
@@ -22,7 +28,7 @@ let MessageInput = ({ handleSubmit, onSubmit }) => {
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div id={'sendmessagebox'} >
+        <div id={'sendmessagebox'}>
           <Field
             name={'chatmessage'}
             component={renderInput}
@@ -30,11 +36,17 @@ let MessageInput = ({ handleSubmit, onSubmit }) => {
             placeholder={'Send message...'}
             defaultValue=''
             className={'ui input fluid'} />
-          <button id={'send'} className={'ui icon basic noborder large button'} type={'submit'}><i className={'send icon'} /></button>
+          <button id={'send'} className={'ui icon basic noborder large button'} type={'submit'}>
+            <i className={'send icon'} />
+          </button>
         </div>
       </form>
     </div>
   )
+}
+
+const options = {
+  componentDidUpdate: (props, prevProps, refs) => scrollToBottom()
 }
 
 MessageInput.propTypes = {
@@ -44,8 +56,7 @@ MessageInput.propTypes = {
 
 MessageInput = reduxForm({
   form: 'chatBot',
-  validate
-})(MessageInput)
+validate})(MessageInput)
 
 // validate
 export default MessageInput
