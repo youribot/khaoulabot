@@ -1,13 +1,6 @@
 'use strict'
 import {app, BrowserWindow} from 'electron'
 
-import installExtension, {
-  REACT_DEVELOPER_TOOLS,
-  REDUX_DEVTOOLS, REACT_PERF
-} from 'electron-devtools-installer'
-
-installExtension('lmhkpmbekcpmknklioeibfkpmmfibljd')
-
 const Hapi = require('hapi')
 const server = new Hapi.Server()
 
