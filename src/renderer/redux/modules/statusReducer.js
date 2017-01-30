@@ -1,8 +1,7 @@
 const initialState = []
 
-const statusReducer = (state = initialState, action) => {
+const statusReducer = (state = initialState , action) => {
   switch (action.type) {
-
     case 'ADD_LINES':
       let lines = action.lines
       let newLines = []
@@ -23,5 +22,4 @@ const statusReducer = (state = initialState, action) => {
 }
 
 export const getLines = state => state.status
-
 export default statusReducer

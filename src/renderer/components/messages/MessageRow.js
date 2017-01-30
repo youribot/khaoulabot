@@ -8,7 +8,7 @@ class MessageRow extends React.Component {
     return (
       <div className={'messagebox ' + 'actor_' + this.props.identity + ' ' + this.props.position}>
         <div className='bubble'>
-          {props.message}
+          {this.props.message}
         </div>
       </div>
     )

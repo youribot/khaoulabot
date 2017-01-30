@@ -1,27 +1,51 @@
 import React, { PropTypes, Component } from 'react'
 import { SubmissionError, Field, reduxForm } from 'redux-form'
 import { Form, Label, Input } from 'semantic-ui-react'
-import functional from 'react-functional'
 
-const renderInput = field => {
+class MessageInput extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      chatmessage: ''
+    }
+  }
 
-  return <div>
-           {field.meta.touched &&
-            field.meta.error &&
-            <Label>
-              {field.meta.error}
-            </Label>}
-           <input
-             {...field.input}
-             type={field.type}
-             placeholder={field.placeholder}
-             defaultValue={field.defaultValue} />
-         </div>
+  onChange (e) {
+    this.setState({chatmessage: e.target.value})
+  }
+
+  renderInput (field) {
+    return <div>
+             <input {...field.input} type={field.type} placeholder={field.placeholder} />
+           </div>
+  }
+
+  render () {
+    return (
+      <div>
+        <form onSubmit={this.props.handleSubmit(this.props.onSubmit)} onChange={this.onChange.bind(this)}>
+          <div id={'sendmessagebox'}>
+            <Field
+              name={'chatmessage'}
+              component={this.renderInput}
+              type={'text'}
+              placeholder={'Send message...'}
+              value={this.state.chatmessage}
+              className={'ui input fluid'} />
+            <button
+              id={'send'}
+              className={'ui icon basic noborder large button'}
+              type={'submit'}
+              disabled={!this.state.chatmessage}>
+              <i className={'send icon'} />
+            </button>
+          </div>
+        </form>
+      </div>
+    )
+  }
 }
 
-const onchangeHand = (props) => {
-  console.log(props)
-}
 const validate = (values, props) => {
   const errors = {}
   if (!values.chatmessage) {
@@ -30,44 +54,13 @@ const validate = (values, props) => {
   return errors
 }
 
-let MessageInput = ({ handleSubmit, onSubmit }) => {
-
-  return (
-    <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div id={'sendmessagebox'}>
-          <Field
-            name={'chatmessage'}
-            component={renderInput}
-            type={'text'}
-            placeholder={'Send message...'}
-            defaultValue=''
-            className={'ui input fluid'} />
-          <button
-            id={'send'}
-            className={'ui icon basic noborder large button'}
-            type={'submit'}
-            disabled={'disabled'}>
-            <i className={'send icon'} />
-          </button>
-        </div>
-      </form>
-    </div>
-  )
-}
-
-const options = {
-  componentDidUpdate: (props, prevProps, refs) => scrollToBottom()
-}
-
 MessageInput.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired
 }
 
 MessageInput = reduxForm({
-  form: 'chatBot',
-validate})(MessageInput)
+form: 'chatBot'})(MessageInput)
 
 // validate
 export default MessageInput
