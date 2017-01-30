@@ -1,13 +1,18 @@
 import React, { PropTypes } from 'react'
 
-const MessageRow = props => {
-  return (
-    <div className={'messagebox ' + 'actor_' + props.identity + ' ' + props.position}>
-      <div className='bubble'>
-        {props.message}
+class MessageRow extends React.Component {
+  constructor (props) {
+    super(props)
+  }
+  render () {
+    return (
+      <div className={'messagebox ' + 'actor_' + this.props.identity + ' ' + this.props.position}>
+        <div className='bubble'>
+          {props.message}
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 MessageRow.propTypes = {
