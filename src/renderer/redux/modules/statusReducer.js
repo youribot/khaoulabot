@@ -11,10 +11,10 @@ const statusReducer = (state = initialState , action) => {
       return state.concat(newLines)
 
     case 'ADD_LINE':
-      return state.concat({line: action.line, actor: 0, position: 'left'})
+      return state.concat({line: action.chatmessage, actor: 0, position: 'left'})
 
     case 'ADD_LINE_BY_USER':
-      return state.concat({line: action.line, actor: 1, position: 'right'})
+      return state.concat({line: action.chatmessage, actor: 1, position: 'right'})
 
     default:
       return state

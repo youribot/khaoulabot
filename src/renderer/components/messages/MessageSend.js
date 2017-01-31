@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react'
 import { SubmissionError, Field, reduxForm } from 'redux-form'
 import { Form, Label, Input } from 'semantic-ui-react'
+import { inputClickHandler } from '../../actions/myaction'
 
 class MessageInput extends React.Component {
   constructor (props) {
@@ -14,6 +15,12 @@ class MessageInput extends React.Component {
     this.setState({chatmessage: e.target.value})
   }
 
+  onSubmit (e) {
+    console.log(this)
+    inputClickHandler(this.state, this.props.dispatch)
+    this.setState({chatmessage: ''})
+  }
+
   renderInput (field) {
     return <div>
              <input {...field.input} type={field.type} placeholder={field.placeholder} />
@@ -23,7 +30,7 @@ class MessageInput extends React.Component {
   render () {
     return (
       <div>
-        <form onSubmit={this.props.handleSubmit(this.props.onSubmit)} onChange={this.onChange.bind(this)}>
+        <form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))} onChange={this.onChange.bind(this)}>
           <div id={'sendmessagebox'}>
             <Field
               name={'chatmessage'}
@@ -54,10 +61,10 @@ const validate = (values, props) => {
   return errors
 }
 
-MessageInput.propTypes = {
-  handleSubmit: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired
-}
+// MessageInput.propTypes = {
+//   handleSubmit: PropTypes.func.isRequired,
+//   onSubmit: PropTypes.func.isRequired
+// }
 
 MessageInput = reduxForm({
 form: 'chatBot'})(MessageInput)

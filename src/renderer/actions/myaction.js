@@ -22,8 +22,9 @@ export const addLineByUser = line => {
   line}
 }
 
-export const inputClickHandler = (line, dispatch) => {
-  dispatch({type: 'ADD_LINE_BY_USER', line: line.chatmessage})
-  dispatch({type: 'ADD_LINE', line: 'Welcome!'})
+export const inputClickHandler = (chat, dispatch) => {
+  console.log(dispatch)
+  dispatch({type: 'ADD_LINE_BY_USER', chatmessage: chat.chatmessage})
+  dispatch({type: 'ADD_LINE', chatmessage: 'Welcome!'})
   dispatch(reset('chatBot'))
 }
