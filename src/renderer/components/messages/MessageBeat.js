@@ -28,4 +28,5 @@ const Form = ({ isSubmitted, buttonText }) => {
     }
   }
 }
+
 export default MessageBeat

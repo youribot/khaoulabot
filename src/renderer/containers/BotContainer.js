@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { reset } from 'redux-form'
 import MessageList from '../components/messages/MessageList'
 import MessageSend from '../components/messages/MessageSend'
+import MessageBeat from '../components/messages/MessageBeat'
 import { inputClickHandler } from '../actions/myaction'
 import { getLines } from '../redux/modules/statusReducer'
 
