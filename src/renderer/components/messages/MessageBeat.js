@@ -8,6 +8,23 @@ const MessageBeat = props => {
   )
 }
 
+var ShowHide = React.createClass({
+  getInitialState: function () {
+    return { childVisible: false };
+  },
+
+  render: function() {
+    return(
+
+    )
+  },
+
+  onClick: function() {
+    this.setState({childVisible: !this.state.childVisible});
+  }
+});
+
+
 const Form = ({ isSubmitted, buttonText }) => {
   if (isSubmitted) {
     // Form submitted! Return a message element.
