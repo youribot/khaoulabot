@@ -30,6 +30,18 @@ var ShowHide = React.createClass({
   }
 })
 
+BioData = React.createClass({
+  render: function () {
+    if (this.props.show) {
+      return <p>
+               bio comp
+             </p>
+    } else {
+      return null
+    }
+  }
+})
+
 const Form = ({ isSubmitted, buttonText }) => {
   if (isSubmitted) {
     // Form submitted! Return a message element.
