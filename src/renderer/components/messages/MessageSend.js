@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react'
+import ReactDOM from 'react-dom'
 import { SubmissionError, Field, reduxForm } from 'redux-form'
 import { Form, Label, Input } from 'semantic-ui-react'
 import { inputClickHandler } from '../../actions/myaction'
@@ -25,6 +26,21 @@ class MessageInput extends React.Component {
 
   handleToggleClick (e) {
     this.setState({ isShown: !this.state.isShown })
+  }
+
+  onScrollEle (el) { this.messagesEnd = el; }
+
+  scrollToBottom () {
+    const node = ReactDOM.findDOMNode(this.messagesEnd)
+    node.scrollIntoView({behavior: 'smooth'})
+  }
+
+  componentDidMount () {
+    this.scrollToBottom()
+  }
+
+  componentDidUpdate () {
+    this.scrollToBottom()
   }
 
   renderInput (field) {
@@ -66,6 +82,7 @@ class MessageInput extends React.Component {
             </div>
           </ToggleDisplay>
         </form>
+        <div className={'scrollBottom'} ref={this.onScrollEle(this)}></div>
       </div>
     )
   }
