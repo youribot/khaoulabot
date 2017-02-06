@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { reset } from 'redux-form'
 import MessageList from '../components/messages/MessageList'
 import MessageSend from '../components/messages/MessageSend'
-import MessageBeat from '../components/messages/MessageBeat'
 import { inputClickHandler } from '../actions/myaction'
 import { getLines } from '../redux/modules/statusReducer'
 
@@ -16,7 +15,7 @@ class BotContainer extends React.Component {
     return (
       <div id={'chatbox'}>
         <MessageList data={this.props.statusdata} />
-        <MessageSend onSubmit={inputClickHandler.bind(this)} />
+        <MessageSend />
       </div>
     )
   }
