@@ -9,8 +9,7 @@ class MessageInput extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      chatmessage: '',
-      isShown: false
+      chatmessage: ''
     }
   }
 
@@ -22,10 +21,6 @@ class MessageInput extends React.Component {
     console.log(this)
     inputClickHandler(this.state, this.props.dispatch)
     this.setState({chatmessage: ''})
-  }
-
-  handleToggleClick (e) {
-    this.setState({ isShown: !this.state.isShown })
   }
 
   onScrollEle (el) { this.messagesEnd = el; }
@@ -52,18 +47,8 @@ class MessageInput extends React.Component {
   render () {
     return (
       <div>
-        <div id='infoSection' className='hidden'>
-          <div className='ui grid'>
-            <div className='ten wide column'>
-              <a className='ui right pointing label' onClick={this.handleToggleClick.bind(this)}>answer</a>
-            </div>
-            <div className='five wide column right aligned'>
-              <a data-actn='plus' className='ui black label'>+</a>
-            </div>
-          </div>
-        </div>
         <form onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))} onChange={this.onChange.bind(this)}>
-          <ToggleDisplay show={this.state.isShown}>
+          <ToggleDisplay show={this.props.isShown}>
             <div id={'sendmessagebox'}>
               <Field
                 name={'chatmessage'}

@@ -1,65 +1,23 @@
 import React, { PropTypes } from 'react'
 
-const MessageBeat = props => {
-  return (
-    <div id={'messagebeat'}>
-      {props.item}
-    </div>
-  )
-}
+class MessageBeat extends React.Component {
+  constructor (props) {
+    super(props)
+  }
 
-var ShowHide = React.createClass({
-  getInitialState: function () {
-    return { childVisible: false }
-  },
-
-  render: function () {
+  render () {
     return (
-      <div>
-        <div onClick={this.onClick}>
+      <div id='infoSection' className='hidden'>
+        <div className='ui grid'>
+          <div className='ten wide column'>
+            <a className='ui right pointing label' onClick={this.props.handleToggleClick}>answer</a>
+          </div>
+          <div className='five wide column right aligned'>
+            <a data-actn='plus' className='ui black label'>+</a>
+          </div>
         </div>
-        {this.state.childVisible
-           ? <Child />
-           : null}
       </div>
     )
-  },
-
-  onClick: function () {
-    this.setState({childVisible: !this.state.childVisible})
-  }
-})
-
-BioData = React.createClass({
-  render: function () {
-    if (this.props.show) {
-      return <p>
-               bio comp
-             </p>
-    } else {
-      return null
-    }
-  }
-})
-
-const Form = ({ isSubmitted, buttonText }) => {
-  if (isSubmitted) {
-    // Form submitted! Return a message element.
-    return {
-      type: Message,
-      props: {
-        text: 'Success!'
-      }
-    }
-  }
-
-  // Form is still visible! Return a button element.
-  return {
-    type: Button,
-    props: {
-      children: buttonText,
-      color: 'blue'
-    }
   }
 }
 
